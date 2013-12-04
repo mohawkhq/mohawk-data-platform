@@ -17,6 +17,11 @@ setup(
     packages = [
         "data",
     ],
+    package_data = {
+        "data": [
+            "static/data/img/*.png",
+        ],
+    },
     zip_safe = False,
     install_requires = [
         "django-cross-origin==0.9.0",
