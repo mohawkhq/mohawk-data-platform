@@ -30,12 +30,152 @@ Admin usage
 
 The bulk of the functionality for mohawk-data-platform is found within the admin UI. The basic workflow is:
 
-1. Create a ``Model``, defining at least one field.
+1. Create a ``Model``, defining at least one ``Field``.
 2. Create an ``Instance`` of that model.
 3. Optionally, create an ``Application``.
 4. Edit the model, and add it to the application you created.
 
 Any data you add to the system will be **pubically-available** via the API endpoints.
+
+
+Model field configuration
+-------------------------
+
+Fields added to a model take a number of optional config parameters, suppled as JSON documents. The available fields, and their configuration options, are listed below.
+
+
+Text
+^^^^
+
+A single-line of unicode text.
+
+::
+
+    {
+        "required": true,
+        "choices": null
+    }
+
+
+Integer
+^^^^^^^
+
+An integer number.
+
+::
+
+    {
+        "required": true,
+        "choices": null
+    }
+
+
+Float
+^^^^^
+
+A floating-point number.
+
+::
+
+    {
+        "required": true
+    }
+
+
+Date
+^^^^
+
+A date value.
+
+::
+
+    {
+        "required": true
+    }
+
+
+Time
+^^^^
+
+A time value.
+
+::
+
+    {
+        "required": true
+    }
+
+
+Datetime
+^^^^^^^^
+
+A combined date and time value.
+
+::
+
+    {
+        "required": true
+    }
+
+
+Boolean
+^^^^^^^
+
+A true/false checkbox.
+
+::
+
+    {}
+
+
+File
+^^^^
+
+An uploaded file.
+
+::
+
+    {
+        "required": true
+    }
+
+
+Long text
+^^^^^^^^^
+
+Multiple lines of unicode text.
+
+::
+
+    {
+        "required": true
+    }
+
+
+Model
+^^^^^
+
+A reference to an instance of a model.
+
+::
+
+    {
+        "required": true,
+        "model_id": "<model_id>"  // The type of instance being referenced.
+    }
+
+
+Multi model
+^^^^^^^^^^^
+
+A reference to multiple instances of a model.
+
+::
+
+    {
+        "required": true,
+        "model_id": "<model_id>"  // The type of instance being referenced.
+    }
 
 
 API endpoints
