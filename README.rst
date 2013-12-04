@@ -38,10 +38,20 @@ The bulk of the functionality for mohawk-data-platform is found within the admin
 Any data you add to the system will be **pubically-available** via the API endpoints.
 
 
-Model field configuration
--------------------------
+Model field reference
+---------------------
 
 Fields added to a model take a number of optional config parameters, suppled as JSON documents. The available fields, and their configuration options, are listed below.
+
+Fields which take choices expect them to be supplied as a list of [value, label] options::
+
+    {
+        "choices": [
+            ["#ff0000", "Red"],
+            ["#0000ff", "Green"],
+            ["#00ff00", "Blue"]
+        ]
+    }
 
 
 Text
