@@ -45,7 +45,7 @@ API endpoints
 GET /<model_id>.json
 ^^^^^^^^^^^^^^^^^^^^
 
-Returns all online instances for the given model::
+Returns all online instances of the given model::
 
     {
         "status": "OK",
@@ -86,7 +86,7 @@ Returns the given instance::
 GET /a/<application_id>.json
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Returns all online instances for the given application::
+Returns all online instances within the given application::
 
     {
         "status": "OK",
