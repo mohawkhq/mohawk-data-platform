@@ -43,7 +43,7 @@ Model field reference
 
 Fields added to a model take a number of optional config parameters, suppled as JSON documents. The available fields, and their configuration options, are listed below.
 
-Fields which take choices expect them to be supplied as a list of [value, label] options::
+Fields which take choices expect them to be supplied as a list of ``[value, label]`` options::
 
     {
         "choices": [
