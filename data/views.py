@@ -1,4 +1,4 @@
-import json
+import json, random
 from functools import wraps
 
 from django.views import generic
@@ -47,6 +47,25 @@ def json_error_response(func):
                 "message": "The resource you attempted to access does not exist.",
             }, status=404)
     return do_json_error_response
+
+
+INDEX_MESSAGES = (
+    "Any fool can use a computer. Many do.",
+    "There are 10 types of people in the world: those who understand binary, and those who don't.",
+    "If brute force doesn't solve your problems, then you aren't using enough.",
+    "My software never has bugs. It just develops random features.",
+    "Programmers are tools for converting caffeine into code.",
+    "If at first you don't succeed; call it version 1.0",
+)
+
+
+class IndexView(AccessControlMixin, generic.View):
+
+    def get(self, request):
+        return json_response(request, {
+            "status": "OK",
+            "message": random.choice(INDEX_MESSAGES),
+        })
 
 
 class InstanceApiView(AccessControlMixin, generic.View):

@@ -203,9 +203,6 @@ class InstanceAdmin(admin.ModelAdmin):
             (None, {
                 "fields": (("external_id", "is_online",),),
             }),
-            ("Access", {
-                "classes": ("collapse",),
-            }),
             ("Properties", {
                 "fields": [
                     form_name_for_field(field)

@@ -1,3 +1,5 @@
+import random
+
 from django.test import TestCase
 from django.test.utils import override_settings
 from django.conf.urls import url, patterns, include
@@ -67,6 +69,13 @@ class TestData(TestCase):
             "status": "Not found",
             "message": "The resource you attempted to access does not exist.",
         }, status=404)
+
+    def testIndexView(self):
+        random.seed("test")
+        self.assertJsonResponse("/", {
+            "status": "OK",
+            "message": "There are 10 types of people in the world: those who understand binary, and those who don't.",
+        })
 
     def testApplicationInstanceListApiView(self):
         self.assertJsonResponse("/a/{}.json".format(self.application.external_id), {
