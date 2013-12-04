@@ -12,3 +12,4 @@ build
 MANIFEST
 venv
 db.sqlite
+/mohawk_data_platform.egg-info/
