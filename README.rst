@@ -28,14 +28,14 @@ Installation
 Admin usage
 -----------
 
-The bulk of the functionality for mohawk-data-platform is found in the admin UI. The basic workflow is:
+The bulk of the functionality for mohawk-data-platform is found within the admin UI. The basic workflow is:
 
 1. Create a ``Model``, defining at least one field.
 2. Create an ``Instance`` of that model.
 3. Optionally, create an ``Application``.
 4. Edit the model, and add it to the application you created.
 
-Any data you add to the system will be pubically-available via the API endpoints.
+Any data you add to the system will be **pubically-available** via the API endpoints.
 
 
 API endpoints
