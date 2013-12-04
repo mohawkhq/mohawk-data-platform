@@ -1,0 +1,11 @@
+language: python
+python:
+  - 2.7
+env:
+  - DJANGO=django==1.6
+install:
+  - pip install $DJANGO
+  - python setup.py -q install
+script: cd data_test && python manage.py test data
+notifications:
+  email: false
