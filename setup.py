@@ -16,6 +16,7 @@ setup(
     url = "http://github.com/mohawkhq/mohawk-data-platform",
     packages = [
         "data",
+        "data.migrations",
     ],
     package_data = {
         "data": [
