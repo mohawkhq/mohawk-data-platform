@@ -191,6 +191,10 @@ class BooleanField(Field):
 
     form_class = forms.BooleanField
 
+    def form_field(self, **kwargs):
+        kwargs.setdefault("required", False)
+        return super(BooleanField, self).form_field(**kwargs)
+
 
 # File fields.
 
