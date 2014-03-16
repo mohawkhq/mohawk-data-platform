@@ -5,10 +5,14 @@ from django.views import generic
 from django.http import HttpResponse, Http404
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
+from django.views.decorators.cache import cache_control
 
 from cross_origin.views import AccessControlMixin
 
 from data.models import Application, Model, Instance
+
+
+cached_view = cache_control(max_age=60*5)
 
 
 def json_response(request, data, status=200):
@@ -61,6 +65,7 @@ INDEX_MESSAGES = (
 
 class IndexView(AccessControlMixin, generic.View):
 
+    @cached_view
     def get(self, request):
         return json_response(request, {
             "status": "OK",
@@ -113,6 +118,7 @@ class ApplicationInstanceListView(InstanceApiView):
         # Dispatch the response.
         return super(ApplicationInstanceListView, self).dispatch(request, application_external_id=application_external_id, **kwargs)
 
+    @cached_view
     def get(self, request, application_external_id):
         return json_response(request, {
             "status": "OK",
@@ -143,6 +149,7 @@ class ModelApiView(InstanceApiView):
 
 class InstanceListView(ModelApiView):
 
+    @cached_view
     def get(self, request, model_external_id):
         return json_response(request, {
             "status": "OK",
@@ -155,6 +162,7 @@ class InstanceListView(ModelApiView):
 
 class InstanceDetailView(ModelApiView):
 
+    @cached_view
     def get(self, request, model_external_id, instance_external_id):
         # Load the instance.
         instance = get_object_or_404(self.get_instance_set(),
