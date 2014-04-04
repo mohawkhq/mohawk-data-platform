@@ -226,7 +226,7 @@ class FileField(RequiredFieldMixin, Field):
         from data.models import File
         value = super(FileField, self).deserialize(value)
         storage = File._meta.get_field("file").storage
-        root = storage.url("/")
+        root = storage.url("")
         try:
             # HACK: Converting a stored URL into a file name.
             # Not elegant, but allows a denormalized file to be
