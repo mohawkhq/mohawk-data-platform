@@ -2,6 +2,12 @@ mohawk-data-platform changelog
 ==============================
 
 
+0.9.3 - 04/04/2014
+------------------
+
+- Fixing parsing of file objects from non-root media URLs.
+
+
 0.9.2 - 16/03/2014
 ------------------
 
